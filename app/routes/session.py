@@ -9,7 +9,7 @@ from ..forms import LoginForm
 bp = Blueprint("session", __name__, url_prefix="/session")
 
 
-@bp.route("/")
+@bp.route("/", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for("orders.index"))
